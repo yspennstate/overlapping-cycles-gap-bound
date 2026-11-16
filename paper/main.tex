@@ -1,0 +1,214 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:\nolinkurl{#1}}}
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{arXiv:\nolinkurl{#1}}}
+\newcommand{\gap}{\operatorname{gap}}
+\setlength{\emergencystretch}{2.5em}
+
+\begin{document}
+
+\title[Single-card gap of the overlapping-cycles shuffle]{An upper bound for the single-card spectral gap of the
+overlapping-cycles shuffle}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yspennstate@gmail.com}
+\subjclass[2020]{60J10, 11H06, 11J70}
+\keywords{card shuffling, spectral gap, overlapping-cycles shuffle, Hermite constant, Diophantine approximation}
+
+\begin{abstract}
+In the overlapping-cycles shuffle of a deck of $n$ cards, the card at position $n$ or the card at position $n-k$ is
+moved to the top, each with probability one half. Angel, Peres and Wilson determined the spectral gap $\gap(n,k)$ of
+the chain followed by a single card, up to a factor $1+o(1)$ uniform in $k$, as the minimum of an explicit family of
+quadratic expressions. They asked whether $\gap(n,k)\le(2\pi^2/\sqrt3+o(1))\,k^{1/2}n^{-2}$ for all $1\le k<n$. We show
+that it does. Their minimum is a constant multiple of the squared length of the shortest vector of a plane lattice of
+determinant $2$, and Hermite's bound for plane lattices gives the inequality with this constant; Dirichlet's
+approximation theorem, used by Angel, Peres and Wilson, gives $2\pi^2$. At $n=26$, $k=12$ the lattice is hexagonal and the bound on the
+minimum is attained exactly.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+The overlapping-cycles shuffle with parameters $n$ and $1\le k<n$ acts on a deck of $n$ cards: at each step, with
+probability $1/2$ each, the card at position $n$ or the card at position $n-k$ is moved to the top of the deck. Jonasson
+first studied it~\cite{Jon06}, and Angel, Peres and Wilson~\cite{APW08} determined the
+spectral gap $\gap(n,k)$ of the Markov chain on $\{1,\dots,n\}$ followed by the position of a single card, that is,
+$1$ minus the largest modulus of an eigenvalue other than $1$ of its transition matrix (the chain is not reversible,
+and this is the convention of~\cite{APW08}). The answer
+depends on the Diophantine properties of $k/n$: the relaxation time is of order $n^2$ when $k/n$ is near a rational
+with small denominator and of order $n^{3/2}$ when $k/n$ is badly approximable. Mixing of the whole deck was studied
+by Jonasson~\cite{Jon11} and, more recently, by Blumberg, Morris and Oberschelp~\cite{BMO23}.
+
+The main theorem of~\cite{APW08} expresses the gap through the quantity
+\begin{equation}\label{eq:gamma}
+\gamma(n,k,m)=\frac{\pi^2}{2n^2}\Bigl(\frac{m^2k}{n}+4n\Bigl\|\frac{m(n-k)}{2n}\Bigr\|^2\Bigr),\qquad
+\gamma(n,k)=\min_{m\in\mathbb Z,\,m\ne0}\gamma(n,k,m),
+\end{equation}
+where $\|x\|=\operatorname{dist}(x,\mathbb Z)$.
+
+\begin{theorem}[Angel, Peres and Wilson~{\cite[Theorem~4]{APW08}}]\label{thm:apw}
+For all large enough $n$ and every $1\le k\le n-1$,
+\[
+\gap(n,k)=(1+o(1))\,\gamma(n,k),
+\]
+where the $o(1)$ tends to zero uniformly in $k$ as $n\to\infty$.
+\end{theorem}
+
+Their proof of Theorem~\ref{thm:apw}~\cite[p.~13]{APW08} applies Dirichlet's approximation theorem to
+$(1-k/n)/2$ and gives
+\[
+\gamma(n,k)\le 2\pi^2\,\frac{\sqrt k}{n^2},
+\]
+and with it $\gap(n,k)\le(2\pi^2+o(1))n^{-3/2}$ for every $k$~\cite[Theorem~2(i)]{APW08}. They
+remarked that this bound should improve by a factor of $\sqrt3$, noted that $\gamma(n,k)=(2\pi^2/\sqrt3+o(1))n^{-3/2}$
+for some $k=n-(2/3^{1/4}+o(1))n^{1/4}$, so that such an improvement would be sharp for $\gamma$, and asked in their second open problem whether
+$\gap(n,k)\le(2\pi^2/\sqrt3+o(1))k^{1/2}n^{-2}$ holds. They observed that $\gamma(n,k)$ appears to be no larger than
+$(2\pi^2/\sqrt3+o(1))k^{1/2}n^{-2}$, as their Figure~5 illustrates for $n=1000$~\cite[Section~6]{APW08}. The answer
+is yes, and the observation holds as an exact inequality for $\gamma$.
+
+\begin{theorem}\label{thm:main}
+For every $n\ge2$ and every $1\le k\le n-1$,
+\begin{equation}\label{eq:bound}
+\gamma(n,k)\le\frac{2\pi^2}{\sqrt3}\,\frac{\sqrt k}{n^2}.
+\end{equation}
+Consequently $\gap(n,k)\le(2\pi^2/\sqrt3+o(1))\,k^{1/2}n^{-2}$, with $o(1)\to0$ uniformly in $1\le k<n$.
+\end{theorem}
+
+The inequality~\eqref{eq:bound} is exact and holds for every $n$; only the statement about $\gap(n,k)$ uses
+Theorem~\ref{thm:apw}. Since $k<n$, Theorem~\ref{thm:main} also gives $\gap(n,k)\le(2\pi^2/\sqrt3+o(1))n^{-3/2}$, which is Theorem~2(i)
+of~\cite{APW08} improved by the factor $\sqrt3$. The proof replaces Dirichlet's theorem by one observation: $\gamma(n,k)$ is a
+multiple of the minimum of a positive definite binary quadratic form of fixed determinant, so the bound of Lagrange
+and Gauss for binary forms (Lemma~\ref{lem:hermite}) applies. Section~\ref{sec:checks} checks~\eqref{eq:bound} for $n\le2000$ and compares
+$\gamma(n,k)$ with the exact gap; both computations are made with the program of~\cite{Repo}.
+
+\section{Proof}\label{sec:proof}
+
+Write $\theta=1-k/n$ and $A=\sqrt k/n$, so that $0<A<1$. For $m\in\mathbb Z$ let
+$b_m=\operatorname{dist}(m\theta,2\mathbb Z)$. Since $\operatorname{dist}(x/2,\mathbb Z)=\tfrac12\operatorname{dist}(x,2\mathbb Z)$,
+we have $4n\|m(n-k)/(2n)\|^2=4n\|m\theta/2\|^2=n\,b_m^2$, and therefore
+\begin{equation}\label{eq:rewrite}
+\gamma(n,k,m)=\frac{\pi^2}{2n^2}\Bigl(\frac{m^2k}{n}+n\,b_m^2\Bigr)
+=\frac{\pi^2\sqrt k}{2n^2}\Bigl(A\,m^2+\frac{b_m^2}{A}\Bigr),
+\end{equation}
+because $\sqrt k\,(Am^2+b_m^2/A)=m^2k/n+n\,b_m^2$.
+
+Let $\Lambda\subset\mathbb R^2$ be the lattice spanned by
+\[
+u_1=\Bigl(\sqrt A,\ \frac{\theta}{\sqrt A}\Bigr),\qquad u_2=\Bigl(0,\ \frac{2}{\sqrt A}\Bigr).
+\]
+Its determinant is $|\det(u_1,u_2)|=2$. The vector $mu_1-ju_2$ has squared length
+$Am^2+(m\theta-2j)^2/A$, and for fixed $m$ the minimum over $j\in\mathbb Z$ is $Am^2+b_m^2/A$. By~\eqref{eq:rewrite},
+\begin{equation}\label{eq:lattice}
+\gamma(n,k)=\frac{\pi^2\sqrt k}{2n^2}\,\mu,\qquad
+\mu=\min\bigl\{|mu_1-ju_2|^2:\ m,j\in\mathbb Z,\ m\ne0\bigr\},
+\end{equation}
+so $\mu$ is the smallest squared length of a vector of $\Lambda$ with nonzero first coordinate.
+
+\begin{lemma}[Lagrange, Gauss]\label{lem:hermite}
+Every lattice in $\mathbb R^2$ of determinant $d$ contains a nonzero vector $v$ with $|v|^2\le(2/\sqrt3)\,d$, with
+equality for the shortest vector exactly when the lattice is similar to the hexagonal lattice.
+\end{lemma}
+
+This is the value $\gamma_2=2/\sqrt3$ of Hermite's constant in dimension two; see~\cite[Chapter~II]{Cas59}. It follows
+from reduction of binary quadratic forms: a reduced form $ax^2+bxy+cy^2$ with $|b|\le a\le c$ satisfies
+$a^2\le ac\le\frac43(ac-b^2/4)$, where $a$ is the squared length of a shortest nonzero vector and $ac-b^2/4=d^2$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+A nonzero vector of $\Lambda$ with $m=0$ is $-ju_2$ with $j\ne0$, and its squared length is $4j^2/A\ge4/A>4$. By
+Lemma~\ref{lem:hermite} applied with $d=2$, $\Lambda$ has a nonzero vector of squared length at most $4/\sqrt3<4$, and
+this vector therefore has $m\ne0$. Hence $\mu\le4/\sqrt3$, and~\eqref{eq:lattice} gives
+\[
+\gamma(n,k)\le\frac{\pi^2\sqrt k}{2n^2}\cdot\frac{4}{\sqrt3}=\frac{2\pi^2}{\sqrt3}\,\frac{\sqrt k}{n^2}.
+\]
+The statement about $\gap(n,k)$ follows from Theorem~\ref{thm:apw}, since its error factor $1+o(1)$ is uniform in $k$.
+\end{proof}
+
+\begin{remark}[Equality]\label{rem:equality}
+Take $n=26$ and $k=12$, so that $\theta=7/13$ and $A=\sqrt{12}/26=\sqrt3/13$. For $m=3$ we have $3\theta=21/13$ and
+$b_3=5/13$, so
+\[
+A\cdot 9+\frac{b_3^2}{A}=\frac{9\sqrt3}{13}+\frac{25}{13\sqrt3}=\frac{52}{13\sqrt3}=\frac{4}{\sqrt3}.
+\]
+Hence $\gamma(n,k,3)$ equals the right side of~\eqref{eq:bound}, and since $\gamma(n,k)$ cannot exceed it,
+$\gamma(26,12)=2\pi^2\sqrt{12}/(\sqrt3\cdot26^2)=\pi^2/169$. So~\eqref{eq:bound} is attained at a finite $(n,k)$, as well as
+asymptotically along the sequence $k=n-(2/3^{1/4}+o(1))n^{1/4}$ noted in~\cite[Section~6]{APW08}.
+Theorem~\ref{thm:main} gives only the upper bound for $\gap(n,k)$; that the envelope
+is approached along $k=(\alpha+o(1))n$ for every $\alpha\in(0,1]$, as indicated in~\cite[Section~6]{APW08}, is not
+addressed here.
+\end{remark}
+
+\section{Numerical checks}\label{sec:checks}
+
+The program in the repository~\cite{Repo} evaluates $\gamma(n,k)$ from~\eqref{eq:gamma} and the exact gap from the
+$n\times n$ transition matrix of the single-card chain. Over all $2\le n\le2000$ and $1\le k<n$, the largest value of
+$\gamma(n,k)\,n^2/\sqrt k$ is $11.396437516$, which agrees with $2\pi^2/\sqrt3=11.3964375155\dots$ to the printed
+digits and occurs at $(n,k)=(26,12)$. For $n=1500$ and $k=1,38,75,\dots$, the largest value of
+$\gap(n,k)\,n^2/\sqrt k$ is $11.106$; for $n=300$ and $k=1,24,47,\dots$ it is $8.644$. At $k=1$ the ratio
+$\gap(n,k)/\gamma(n,k)$ is $0.9995$ for $n=300$. Over the values of $k$ checked for $n=1500$ the ratio lies between
+$0.79$ and $1.025$ (the largest at $k=260$). The small ratios occur when the minimising $m$ in~\eqref{eq:gamma} has
+$b_m$ not small, where the quadratic expression is a poor approximation; in the cases computed they move toward $1$
+as $n$ grows. For $k/n=0.79$
+the ratio is $0.794$, $0.791$, $0.991$ and $0.975$ at $n=750$, $1500$, $3000$ and $6000$, and for $k/n=0.7407$ it is
+$0.741$, $1.005$ and $1.002$ at $n=750$, $1500$ and $3000$.
+
+\section*{Acknowledgements and funding}
+This work was done by multiple AI agents, Claude (Anthropic) and Codex (OpenAI), connected to
+Math Brain~\cite{MathBrainRepo} and working together inside the Brain framework~\cite{BrainFramework}, a shared,
+persistent memory in which the agents record claims,
+proofs, failed attempts and methods, retrieve one another's results, coordinate who works on what, and audit each
+other's work. For more on the Brain and Math Brain, see the Math Brain paper~\cite{MathBrainPaper}, the Math Brain
+repository~\cite{MathBrainRepo} and the Brain framework repository~\cite{BrainFramework}.
+
+The research presented in this paper was supported by the European Research Council (ERC) under the European Union's
+Horizon Europe research and innovation programme (grant agreement No.~101041711), by the Simons Foundation as part of
+the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus
+Capital, by the Israel Science Foundation (grant number 2258/19), and by the Israel Science Foundation (ISF Grant
+4101/25). Computational resources were provided in part by Google Cloud through its education credits programme
+(credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital.
+These entities are included in the funding declaration above.
+
+\section*{Data availability}
+The program described in Section~\ref{sec:checks} is in the repository~\cite{Repo}.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+This paper is part of a broader research project on AI proving problems. Claude agents (Anthropic) proved
+Theorem~\ref{thm:main}, wrote the program of Section~\ref{sec:checks} and prepared the manuscript. The shuffle's
+single-card analysis, the quantity $\gamma(n,k)$, Theorem~\ref{thm:apw}, the bound
+$\gamma(n,k)\le2\pi^2k^{1/2}n^{-2}$ from Dirichlet's theorem, the bound $(2\pi^2+o(1))n^{-3/2}$, the asymptotic
+sharpness of the constant $2\pi^2/\sqrt3$ for $\gamma$ and the question answered here are due to Angel, Peres and
+Wilson~\cite{APW08}. Lemma~\ref{lem:hermite} is classical. The new contribution is the identification of $\gamma(n,k)$ with the minimum of a
+plane lattice of determinant $2$, which improves the constant to $2\pi^2/\sqrt3$ and gives Theorem~\ref{thm:main}. The author directed the work and is responsible for the paper.
+
+\begin{thebibliography}{99}
+\bibitem{APW08} O.~Angel, Y.~Peres and D.~B.~Wilson, \emph{Card shuffling and Diophantine approximation}, Ann. Appl.
+Probab. \textbf{18} (2008), 1215--1231, \doi{10.1214/07-AAP484}, \arxiv{0707.2994}.
+\bibitem{BMO23} O.~Blumberg, B.~Morris and H.~Oberschelp, \emph{Mixing time of the overlapping cycles shuffle}, 2023,
+\arxiv{2310.15438}.
+\bibitem{Cas59} J.~W.~S.~Cassels, \emph{An Introduction to the Geometry of Numbers}, Grundlehren der mathematischen
+Wissenschaften~99, Springer, Berlin, 1959.
+\bibitem{Jon06} J.~Jonasson, \emph{Biased random-to-top shuffling}, Ann. Appl. Probab. \textbf{16} (2006), 1034--1058, \doi{10.1214/10505160600000097}.
+\bibitem{Jon11} J.~Jonasson, \emph{Mixing time bounds for overlapping cycles shuffles}, Electron. J. Probab.
+\textbf{16} (2011), 1281--1295, \doi{10.1214/EJP.v16-912}.
+\bibitem{Repo} Y.~Shmalo, \emph{Overlapping-cycles single-card gap bound: paper and check program}, 2026,
+release v1.0, \url{https://github.com/yspennstate/overlapping-cycles-gap-bound/tree/v1.0}.
+\bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026,
+\url{https://github.com/yspennstate/math-brain-public/tree/8c9a6bd478c4ec4082347151b7ae16db50c917dd}.
+\bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research},
+October 2026, \doi{10.5281/zenodo.24150837},
+\url{https://github.com/yspennstate/math-brain-public/tree/main/papers/math-brain-2026-10-24}.
+\bibitem{BrainFramework} Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026,
+\url{https://github.com/yspennstate/brain-framework-public/tree/5629e644cdd510173ae97e9aa92642dabd22dc57}.
+\end{thebibliography}
+
+\end{document}
